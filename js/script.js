@@ -40,6 +40,9 @@
             this.MinecraftTasks.unshift(newTask);
             this.todoText = '';
         },
+        toggleDone(index) {
+            this.MinecraftTasks[index].done = !this.MinecraftTasks[index].done
+        },
     },
     mounted(){
         console.log(removeTask);

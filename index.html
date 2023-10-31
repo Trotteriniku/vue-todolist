@@ -10,27 +10,37 @@
 </head>
 <body>
     <div id="app">
-        <header d-flex justify-content-center align-content-center>
-            <img src="img/minecraft logo.png" alt="minecraft-logo" >
+        <header class=" d-flex flex-column justify-content-center align-content-center">
+            <div class="w-100 d-flex justify-content-center">
+                <img src="img/minecraft logo.png" alt="minecraft-logo" >
+            </div>
+           
+            <div class="d-flex justify-content-center mb-3">
+                <div class="input-group mb-3 w-25" >
+                    <input type="text" class="form-control" placeholder="Aggiungi qualcosa alla lista" v-model="todoText" @keyup.enter="addTask()">
+                    <button   button class="btn btn-success" type="button" @click="addTask" >add task</button>
+                </div>
+            </div> 
+            
+            
         </header> 
         <main>
             
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Aggiungi qualcosa alla lista" v-model="todoText" @keyup.enter="addTask()">
-                <button class="btn btn-success" type="button" @click="addTask" >add task</button>
-            </div>
+                
+            
+            
 
 
-            <div class="listcontainer">
+            <div class="container-sm d-flex justify-content-center">
                 <ul class="list-group n" v-if="MinecraftTasks.length > 0">
                     <li class="list-group-item list-group-item-action d-flex flex-row justify-content-between"
-                        v-for="(todo, index) in MinecraftTasks" :key="todo.index">
-                        <span :class="{'done': todo.done}">{{todo.text}}</span>
+                        v-for="(todo, index) in MinecraftTasks" :key="todo.index" style="min-width: 500px ;">
+                        <span :class="{'done': todo.done}" @click.once="toggleDone(index)">{{todo.text}}</span>
                         <i class="fa-solid fa-trash" style="cursor: pointer;" @click="removeTask(index)"></i>
                     </li>
                 </ul>
-                <div v-else>
-                    non hai piu task da fare
+                <div v-else class="bg-light p-4 rounded">
+                    non hai task da fare
                 </div>
             </div>
         </main>
