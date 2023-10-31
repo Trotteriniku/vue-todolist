@@ -10,7 +10,20 @@
 </head>
 <body>
     <div id="app">
-        
+        <header d-flex justify-content-center align-content-center>
+            <img src="img/minecraft logo.png" alt="minecraft-logo" >
+        </header> 
+        <main>
+            <div class="listcontainer">
+                <ul class="list-group n" v-if="MinecraftTasks.length > 0">
+                    <li class="list-group-item list-group-item-action d-flex flex-row justify-content-between"
+                        v-for="(todo, index) in MinecraftTasks" :key="todo.index">
+                        <span :class="{'done': todo.done}" @click="toggleDone(index)">{{todo.text}}</span>
+                        <i class="fa-solid fa-trash" style="cursor: pointer;" @click="removeTask(todo.id)"></i>
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
 
 

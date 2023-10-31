@@ -1,0 +1,23 @@
+body{
+    background-image: url(../img/pxfuel.jpg);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+
+}
+
+header img{
+    width: 500px;
+    filter: drop-shadow(15px 10px 5px #000000);
+}
+
+li{
+    list-style-type: none;
+}
+
+.done{
+    text-decoration: line-through;
+}
+
